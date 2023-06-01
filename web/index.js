@@ -30,9 +30,9 @@ const app = express();
 
 const jsFilesPath = path.join(dirname(fileURLToPath(import.meta.url)), 'jsfiles');
 
-console.log("*********"+jsFilesPath);
+console.log("*********"+STATIC_PATH);
 
-app.use('/jsfiles',express.static(jsFilesPath + '/jsfiles'))
+app.use('/jsfiles',express.static(STATIC_PATH + 'service-worker.js'))
 
 // Set up Shopify authentication and webhook handling
 app.get(shopify.config.auth.path, shopify.auth.begin());
