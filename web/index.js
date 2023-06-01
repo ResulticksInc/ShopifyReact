@@ -57,8 +57,8 @@ app.use("/api/*", shopify.validateAuthenticatedSession());
 app.get("/custom_fcm_path", async (_req, res) => {
   return res
   .status(200)
-  .redirect("https://simple-node-tudb.onrender.com/jsfiles/service-worker.js")
-  
+  .set("Content-Type", "text/javascript")
+  .send(readFileSync(join(STATIC_PATH, "service-worker.js")));
 });
 
 
