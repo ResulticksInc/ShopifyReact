@@ -52,13 +52,25 @@ app.post(
 app.use("/api/*", shopify.validateAuthenticatedSession());
 
 
-
-
 app.get("/custom_fcm_path", async (_req, res) => {
-  return res
+
+  fetch("https://simple-node-tudb.onrender.com/jsfiles/service-worker.js")
+  .then(function(resdata) {
+    // handle the response
+    return res
   .status(200)
   .set("Content-Type", "text/javascript")
-  .send(readFileSync(join(STATIC_PATH, "service-worker.js")));
+  .send(resdata);
+
+  })
+  .catch(function(err) {
+    // handle the error
+    return res
+    .status(200)
+    .send("failed to fetch");
+  });
+
+  
 });
 
 
