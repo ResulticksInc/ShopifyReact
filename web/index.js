@@ -16,6 +16,11 @@ import { dirname } from 'path';
 import { shopifyApp } from "@shopify/shopify-app-express";
 
 
+// const PORT = parseInt(
+//   process.env.BACKEND_PORT || process.env.PORT || "59734",
+//   10
+// );
+
 const PORT = parseInt(
   process.env.BACKEND_PORT || process.env.PORT || "3000",
   10
@@ -53,24 +58,10 @@ app.use("/api/*", shopify.validateAuthenticatedSession());
 
 
 app.get("/custom_fcm_path", async (_req, res) => {
-
-  fetch("https://simple-node-tudb.onrender.com/jsfiles/service-worker.js")
-  .then(function(resdata) {
-    // handle the response
-    return res
+  return res
   .status(200)
   .set("Content-Type", "text/javascript")
-  .send(resdata);
-
-  })
-  .catch(function(err) {
-    // handle the error
-    return res
-    .status(200)
-    .send("failed to fetch");
-  });
-
-  
+  .send("importScripts('https://sdk.rsut.io/Scripts/push-sw.js');");
 });
 
 
