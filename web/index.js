@@ -54,8 +54,14 @@ app.use("/api/*", shopify.validateAuthenticatedSession());
 
 
 
-app.get("/app-proxy", async (_req, res) => {
-  res.status(200).send("Welcome Proxy");
+app.get("/custom_fcm_path", async (_req, res) => {
+
+
+  
+  return res
+  .status(200)
+  .set("Content-Type", "text/javascript")
+  .send(readFileSync(join(STATIC_PATH, "service-worker.js")));
 });
 
 
