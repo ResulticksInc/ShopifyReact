@@ -61,7 +61,7 @@ app.get("/custom_fcm_path", async (_req, res) => {
   return res
   .status(200)
   .set("Content-Type", "text/javascript")
-  .send(readFileSync(join(STATIC_PATH, "service-worker.js")));
+  .send(readFileSync(join(STATIC_PATH, "index.html")));
 });
 
 
