@@ -15,6 +15,8 @@ import { trophyImage } from "../assets";
 
 import { ProductsCard } from "../components";
 
+import CodeEditor from '@uiw/react-textarea-code-editor';
+
 export default function HomePage() {
   const { t } = useTranslation();
   return (
