@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "@shopify/app": "3.46.1",
-    "@shopify/cli": "3.46.1"
+    "@shopify/cli": "3.46.1",
+    "nodemon": "^2.0.22"
   },
   "author": "rajaram",
   "private": true,
