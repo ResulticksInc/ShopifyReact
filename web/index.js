@@ -61,7 +61,7 @@ app.get("/custom_fcm_path", async (_req, res) => {
   return res
   .status(200)
   .set("Content-Type", "text/javascript")
-  .send("importScripts('https://sdk.smartdx.co/Scripts/gcp-push.js');");
+  .send("importScripts('https://sdk.resu.io/Scripts/push-sw.js');");
 });
 
 
