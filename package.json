@@ -5,11 +5,13 @@
   "license": "UNLICENSED",
   "scripts": {
     "shopify": "shopify",
-    "build": "shopify app build",
+    "build": "HOST=localhost PORT=8081 SCOPES=write_products SHOPIFY_API_KEY=232eb57438e094f5fea33047a73483ac SHOPIFY_API_SECRET=691584a87a4c78e7d11707c96277a501 shopify app build",
     "dev": "shopify app dev",
     "info": "shopify app info",
     "generate": "shopify app generate",
-    "deploy": "shopify app deploy"
+    "deploy": "shopify app deploy",
+    "serve": "cross-env HOST=localhost PORT=8081 SCOPES=write_products SHOPIFY_API_KEY=232eb57438e094f5fea33047a73483ac SHOPIFY_API_SECRET=691584a87a4c78e7d11707c96277a501 node web/index.js",
+    "start": "cross-env HOST=localhost PORT=8081 SCOPES=write_products SHOPIFY_API_KEY=232eb57438e094f5fea33047a73483ac SHOPIFY_API_SECRET=691584a87a4c78e7d11707c96277a501 node web/index.js"
   },
   "dependencies": {
     "@shopify/app": "3.46.1",
