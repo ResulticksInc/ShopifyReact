@@ -58,7 +58,6 @@ export default defineConfig({
     proxy: {
       "^/(\\?.*)?$": proxyOptions,
       "^/api(/|(\\?.*)?$)": proxyOptions,
-      "^/jsfiles/.*$": proxyOptions,
     },
   },
 });

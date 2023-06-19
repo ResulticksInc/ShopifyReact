@@ -16,6 +16,7 @@
   "dependencies": {
     "@shopify/app": "3.46.1",
     "@shopify/cli": "3.46.1",
+    "cross-env": "^7.0.3",
     "nodemon": "^2.0.22"
   },
   "author": "rajaram",

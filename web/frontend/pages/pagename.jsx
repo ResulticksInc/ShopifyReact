@@ -1,20 +1,18 @@
-import { Card, Page, Layout, TextContainer, Text } from "@shopify/polaris";
+import { Card, Page, Layout, TextContainer, Heading } from "@shopify/polaris";
 import { TitleBar } from "@shopify/app-bridge-react";
-import { useTranslation } from "react-i18next";
 
 export default function PageName() {
-  const { t } = useTranslation();
   return (
     <Page>
       <TitleBar
-        title={t("PageName.title")}
+        title="Dashboard"
         primaryAction={{
-          content: t("PageName.primaryAction"),
+          content: "Primary action",
           onAction: () => console.log("Primary action"),
         }}
         secondaryActions={[
           {
-            content: t("PageName.secondaryAction"),
+            content: "Secondary action",
             onAction: () => console.log("Secondary action"),
           },
         ]}
@@ -22,29 +20,23 @@ export default function PageName() {
       <Layout>
         <Layout.Section>
           <Card sectioned>
-            <Text variant="headingMd" as="h2">
-              {t("PageName.heading")}
-            </Text>
+            <Heading>Heading</Heading>
             <TextContainer>
-              <p>{t("PageName.body")}</p>
+              <p>Body</p>
             </TextContainer>
           </Card>
           <Card sectioned>
-            <Text variant="headingMd" as="h2">
-              {t("PageName.heading")}
-            </Text>
+            <Heading>Heading</Heading>
             <TextContainer>
-              <p>{t("PageName.body")}</p>
+              <p>Body</p>
             </TextContainer>
           </Card>
         </Layout.Section>
         <Layout.Section secondary>
           <Card sectioned>
-            <Text variant="headingMd" as="h2">
-              {t("PageName.heading")}
-            </Text>
+            <Heading>Heading</Heading>
             <TextContainer>
-              <p>{t("PageName.body")}</p>
+              <p>Body</p>
             </TextContainer>
           </Card>
         </Layout.Section>

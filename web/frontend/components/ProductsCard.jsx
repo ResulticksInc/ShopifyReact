@@ -1,7 +1,12 @@
 import { useState } from "react";
-import { Card, TextContainer, Text } from "@shopify/polaris";
+import {
+  Card,
+  Heading,
+  TextContainer,
+  DisplayText,
+  TextStyle,
+} from "@shopify/polaris";
 import { Toast } from "@shopify/app-bridge-react";
-import { useTranslation } from "react-i18next";
 import { useAppQuery, useAuthenticatedFetch } from "../hooks";
 
 export function ProductsCard() {
@@ -9,8 +14,6 @@ export function ProductsCard() {
   const [isLoading, setIsLoading] = useState(true);
   const [toastProps, setToastProps] = useState(emptyToastProps);
   const fetch = useAuthenticatedFetch();
-  const { t } = useTranslation();
-  const productsCount = 5;
 
   const {
     data,
@@ -36,15 +39,11 @@ export function ProductsCard() {
 
     if (response.ok) {
       await refetchProductCount();
-      setToastProps({
-        content: t("ProductsCard.productsCreatedToast", {
-          count: productsCount,
-        }),
-      });
+      setToastProps({ content: "5 products created!" });
     } else {
       setIsLoading(false);
       setToastProps({
-        content: t("ProductsCard.errorCreatingProductsToast"),
+        content: "There was an error creating products",
         error: true,
       });
     }
@@ -54,24 +53,27 @@ export function ProductsCard() {
     <>
       {toastMarkup}
       <Card
-        title={t("ProductsCard.title")}
+        title="Product Counter"
         sectioned
         primaryFooterAction={{
-          content: t("ProductsCard.populateProductsButton", {
-            count: productsCount,
-          }),
+          content: "Populate 5 products",
           onAction: handlePopulate,
           loading: isLoading,
         }}
       >
         <TextContainer spacing="loose">
-          <p>{t("ProductsCard.description")}</p>
-          <Text as="h4" variant="headingMd">
-            {t("ProductsCard.totalProductsHeading")}
-            <Text variant="bodyMd" as="p" fontWeight="semibold">
-              {isLoadingCount ? "-" : data.count}
-            </Text>
-          </Text>
+          <p>
+            Sample products are created with a default title and price. You can
+            remove them at any time.
+          </p>
+          <Heading element="h4">
+            TOTAL PRODUCTS
+            <DisplayText size="medium">
+              <TextStyle variation="strong">
+                {isLoadingCount ? "-" : data.count}
+              </TextStyle>
+            </DisplayText>
+          </Heading>
         </TextContainer>
       </Card>
     </>
